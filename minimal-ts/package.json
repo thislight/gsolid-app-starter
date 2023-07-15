@@ -1,0 +1,26 @@
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "ts-node -T --esm build.ts",
+    "start": "gjs -m dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@girs/gjs": "^3.2.0",
+    "@girs/gtk-4.0": "4.10.4-3.2.0",
+    "esbuild": "^0.18.13",
+    "esbuild-gjs": "^1.0.0",
+    "esbuild-plugin-gsolid": "^1.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "gsolid": "^0.2.0"
+  }
+}
