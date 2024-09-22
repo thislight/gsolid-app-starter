@@ -18,6 +18,8 @@ await Promise.all([
     treeShaking: true,
   }),
 
+  // Be advised that the entrypoint is a different bundle to the index.
+  // So they refers different modules in different bundles.
   esbuild.build({
     entryPoints: ["entrypoint.ts"],
     target: "firefox68",

@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "ts-node -T --esm build.ts",
-    "start": "gjs -m --command=\"import main from 'dist/index.js'; import system from 'system'; system.exit(main(system.programArgs));\"",
-    "build:gres": "glib-compile-resources --target install/share/org.example.MyApp/org.example.MyApp.src.gresource dist/org.example.MyApp.gresource.xml"
+    "start": "install/share/org.example.MyApp/org.example.MyApp",
+    "build:gres": "glib-compile-resources --target install/share/org.example.MyApp/org.example.MyApp.src.gresource dist/org.example.MyApp.src.gresource.xml"
   },
   "keywords": [],
   "author": "",
