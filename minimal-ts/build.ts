@@ -12,7 +12,7 @@ await Promise.all([
     plugins: [GjsPlugin({
       writeResourceManifest: {
         prefix: "/org/example/MyApp",
-        filename: "org.example.MyApp.gresource.xml"
+        filename: "org.example.MyApp.src.gresource.xml"
       }
     }), GSolidPlugin()],
     treeShaking: true,

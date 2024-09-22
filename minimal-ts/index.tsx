@@ -45,6 +45,6 @@ const app = createApp((app) => {
   </ReactiveWindow> as Gtk.Window);
 }, { application_id: "org.example.MyApp" });
 
-export default function (args?: string[]){
+export function main(args?: string[]){
   return app.run(args)
 }

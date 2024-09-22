@@ -1,4 +1,4 @@
 dist/
 node_modules/
 install/share/org.example.MyApp/org.example.MyApp
-install/share/org.example.MyApp/org.example.MyApp.gresource
+install/share/org.example.MyApp/org.example.MyApp.src.gresource

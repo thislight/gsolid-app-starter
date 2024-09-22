@@ -1,17 +1,10 @@
 #! /usr/bin/env -S gjs -m
-import {set, requireResource} from "gsolid/package";
-import system from "system";
-
-set({
-    id: "org.example.MyApp",
-    name: "Hello World",
+imports.package.init({
+    name: "org.example.MyApp",
     version: "1.0.0",
     prefix: "install",
     libdir: "install/lib"
-})
-
-requireResource(["org.example.MyApp.gresource"]);
-
-import("resource://org/example/MyApp/dist/index.js").then(({default: main}) => {
-    system.exit(main(system.programArgs));
 });
+
+// We must use import(), or it will be reordered by esbuild
+import("resource://org/example/MyApp/dist/index.js").then(imports.package.run);
