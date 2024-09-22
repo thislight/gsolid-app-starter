@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=JS Application
+Comment=Demo JS Application and template
+Icon=org.example.MyApp
+Exec=gapplication launch org.example.MyApp
+DBusActivatable=false
+StartupNotify=true
+Keywords=gtk;gjs;demo;development;

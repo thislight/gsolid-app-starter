@@ -6,19 +6,20 @@
   "type": "module",
   "scripts": {
     "build": "ts-node -T --esm build.ts",
-    "start": "gjs -m dist/index.js"
+    "start": "gjs -m dist/index.js",
+    "build:gres": "glib-compile-resources --target install/share/org.example.MyApp/org.example.MyApp.gresource dist/org.example.MyApp.gresource.xml"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@girs/gjs": "^3.2.0",
+    "@girs/gjs": "^3.3.0",
     "@girs/gtk-4.0": "4.10.4-3.2.0",
-    "esbuild": "^0.18.13",
-    "esbuild-gjs": "^1.0.0",
-    "esbuild-plugin-gsolid": "^1.0.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.1.6"
+    "esbuild": "^0.24.0",
+    "esbuild-gjs": "^1.1.0",
+    "esbuild-plugin-gsolid": "^1.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
   },
   "dependencies": {
     "gsolid": "^0.2.0"

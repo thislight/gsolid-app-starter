@@ -1,14 +1,9 @@
 import Gtk from "gi://Gtk?version=4.0";
 import Gdk from "gi://Gdk?version=4.0";
-import GLib from "gi://GLib";
-import { createSignal, onCleanup, start } from "gsolid";
-import { Box, Button, Label, ReactiveWindow } from "gsolid/gtk4";
+import { createSignal, onCleanup } from "gsolid";
+import { Box, Button, Label, ReactiveWindow, createApp } from "gsolid/gtk4";
 
-Gtk.init();
-
-const loop = GLib.MainLoop.new(null, false);
-
-const dispose = start(() => {
+const app = createApp((app) => {
   let window: Gtk.Window;
   const [date, setDate] = createSignal(Date.now());
   const id = setInterval(() => setDate(Date.now()), 1000);
@@ -20,14 +15,10 @@ const dispose = start(() => {
 
   const openRepository = () => Gtk.show_uri(window, "https://github.com/thislight/gsolid", Gdk.CURRENT_TIME);
 
-  <ReactiveWindow
+  app.add_window(<ReactiveWindow
     ref={window!}
     open={true}
-    onCloseRequest={() => {
-      dispose();
-      loop.quit(); // We must quit the loop so the application can exit
-      return true;
-    }}
+    onCloseRequest={() => false}
     defaultHeight={250}
     defaultWidth={250}
     title="Welcome to GSolid!"
@@ -51,7 +42,9 @@ const dispose = start(() => {
         <Button label="GSolid Repository" onClicked={openRepository}/>
       </Box>
     </Box>
-  </ReactiveWindow>;
-});
+  </ReactiveWindow> as Gtk.Window);
+}, { application_id: "org.example.MyApp" });
 
-loop.run();
+export default function (args?: string[]){
+  return app.run(args)
+}
